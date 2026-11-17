@@ -218,6 +218,13 @@ scrape_configs:
       - targets: ["mysql.daws90s.shop:9104"]
         labels:
           tier: "mysql"
+
+  - job_name: "backend"
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["backend.daws90s.shop:9101"]
+        labels:
+          tier: "backend"
 YAML
 chown prometheus:prometheus /etc/prometheus/prometheus.yml
 ```
